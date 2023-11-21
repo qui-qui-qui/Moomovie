@@ -1,0 +1,10 @@
+{
+    "tabWidth": 4,
+    "semi": true,
+    "singleQuote": false,
+    "printWidth": 80,
+    "endOfLine": "auto",
+    "importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true
+}
