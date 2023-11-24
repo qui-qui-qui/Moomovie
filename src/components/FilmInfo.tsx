@@ -4,7 +4,7 @@ import { Loader } from "../pages/Loader";
 
 function FilmInfo() {
     const { id } = useParams();
-    const { data: film, isLoading } = useGetFilmsByIdQuery(id?.slice(1));
+    const { data: film, isLoading } = useGetFilmsByIdQuery(id);
 
     if (isLoading) {
         return <Loader />;

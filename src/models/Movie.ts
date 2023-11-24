@@ -1,4 +1,4 @@
-export interface IMovieInfo {
+export interface MovieInfo {
     Title: string;
     Year: string;
     imdbID: string;
@@ -12,7 +12,7 @@ export interface IMovieInfo {
     imdbRating: string;
 }
 
-export interface IMovie {
-    Search: IMovieInfo[];
+export interface Movie {
+    Search: MovieInfo[];
     totalResults: string;
 }

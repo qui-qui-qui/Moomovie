@@ -1,10 +1,9 @@
-import { FC } from "react";
-import { IMovieInfo } from "../models/IMovie";
+import { MovieInfo } from "../models/Movie";
 
-interface FilmItemProps {
-    film: IMovieInfo;
-}
-const FilmItem: FC<FilmItemProps> = ({ film }) => {
+type Props = {
+    film: MovieInfo;
+};
+const FilmItem = ({ film }: Props) => {
     return (
         <div className="flex-column justify-evenly max-w-sm bg-white border border-gray-200 rounded-lg shadow">
             <div>
