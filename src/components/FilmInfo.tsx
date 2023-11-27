@@ -3,7 +3,8 @@ import { useGetFilmsByIdQuery } from "../services/FilmService";
 import { Loader } from "../pages/Loader";
 
 function FilmInfo() {
-    const { id } = useParams();
+    const id = useParams().id?.slice(1);
+
     const { data: film, isLoading } = useGetFilmsByIdQuery(id);
 
     if (isLoading) {

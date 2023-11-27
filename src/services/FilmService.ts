@@ -8,20 +8,26 @@ const filmApi = createApi({
     reducerPath: "filmApi",
     baseQuery: fetchBaseQuery({ baseUrl }),
     endpoints: (build) => ({
-        getFilms: build.query<Movie, string | void>({
+        getFilms: build.query<MovieInfo[], string | void>({
             query: () => ({
                 url: `${baseUrl}&s=lynch&page=1`,
             }),
+            transformResponse: (res: Movie) => {
+                return res.Search;
+            },
         }),
         getFilmsById: build.query<MovieInfo, string | void>({
             query: (id) => ({
-                url: `${baseUrl}&i=${id?.slice(1)}`,
+                url: `${baseUrl}&i=${id}`,
             }),
         }),
-        getFilmsByTitle: build.query<Movie, string | void>({
+        getFilmsByTitle: build.query<MovieInfo[], string | void>({
             query: (q) => ({
                 url: `${baseUrl}&s=${q}&page=1`,
             }),
+            transformResponse: (res: Movie) => {
+                return res.Search;
+            },
         }),
     }),
 });
