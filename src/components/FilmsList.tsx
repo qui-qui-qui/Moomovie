@@ -1,21 +1,21 @@
-import { MovieInfo } from "../models/Movie";
-import { Loader } from "../pages/Loader";
-import { useGetFilmsQuery } from "../services/FilmService";
 import { FilmItem } from "./FilmItem";
+import { Movie, MovieInfo } from "../models/Movie";
 
-function FilmsList() {
-    const { data, isLoading } = useGetFilmsQuery("");
+type Props = {
+    search: Movie | undefined;
+};
 
-    if (isLoading) {
-        return <Loader />;
-    }
-
+function FilmsList({ search }: Props) {
     return (
         <div className="bg-gray-100  py-10 px-12">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {data?.Search.map((film: MovieInfo) => {
-                    return <FilmItem key={film.imdbID} film={film} />;
-                })}
+                {search?.Search ? (
+                    search.Search.map((film: MovieInfo) => {
+                        return <FilmItem key={film.imdbID} film={film} />;
+                    })
+                ) : (
+                    <h1>No data</h1>
+                )}
             </div>
         </div>
     );

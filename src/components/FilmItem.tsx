@@ -8,7 +8,7 @@ const FilmItem = ({ film }: Props) => {
         <div className="flex-column justify-evenly max-w-sm bg-white border border-gray-200 rounded-lg shadow">
             <div>
                 <img
-                    className="rounded-t h-72 w-full object-cover"
+                    className="rounded-t h-72 w-full object-cover pointer-events-none"
                     src={film.Poster}
                     alt=""
                 />

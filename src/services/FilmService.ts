@@ -18,9 +18,18 @@ const filmApi = createApi({
                 url: `${baseUrl}&i=${id?.slice(1)}`,
             }),
         }),
+        getFilmsByTitle: build.query<Movie, string | void>({
+            query: (q) => ({
+                url: `${baseUrl}&s=${q}&page=1`,
+            }),
+        }),
     }),
 });
 
-export const { useGetFilmsQuery, useGetFilmsByIdQuery } = filmApi;
+export const {
+    useGetFilmsQuery,
+    useGetFilmsByIdQuery,
+    useGetFilmsByTitleQuery,
+} = filmApi;
 
 export { filmApi };
