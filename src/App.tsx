@@ -1,17 +1,12 @@
-import { Route, Routes } from "react-router-dom";
-import { Home } from "./pages/Home";
+import { useDispatch } from "react-redux";
 import "./App.css";
-import { ExtraInfo } from "./pages/ExtraInfo";
-import { SearchResult } from "./pages/SearchResult";
+import AuthProvider from "./providers/AuthProvider";
+import { init } from "./redux/actions/init";
 
 function App() {
-    return (
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/:id" element={<ExtraInfo />} />
-            <Route path="/search/:query" element={<SearchResult />} />
-        </Routes>
-    );
+    const dispatch = useDispatch();
+    dispatch(init());
+    return <AuthProvider />;
 }
 
 export { App };

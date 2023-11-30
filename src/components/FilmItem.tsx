@@ -1,14 +1,34 @@
+import { useDispatch, useSelector } from "react-redux";
 import { MovieInfo } from "../models/Movie";
+import PropTypes from "prop-types";
+import { getAuthStatusSelector } from "../redux/slices/authSlice";
+import { Link } from "react-router-dom";
+import { addFavorite, deleteFavorite } from "../redux/slices/favoritesSlice";
+import { AddToFavorite } from "./AddToFavorite";
 
 type Props = {
     film: MovieInfo;
+    isFavorite: boolean;
 };
-const FilmItem = ({ film }: Props) => {
+
+const FilmItem = ({ film, isFavorite }: Props) => {
+    const dispatch = useDispatch();
+
+    const authStatus = useSelector(getAuthStatusSelector);
+
+    const handleLikeClick = (idFilm: string) => {
+        console.log(idFilm, isFavorite);
+        if (isFavorite) {
+            dispatch(deleteFavorite(idFilm));
+            return;
+        }
+        dispatch(addFavorite(film));
+    };
     return (
         <div className="flex-column justify-evenly max-w-sm bg-white border border-gray-200 rounded-lg shadow">
             <div>
                 <img
-                    className="rounded-t h-72 w-full object-cover pointer-events-none"
+                    className="rounded-t h-72 w-full object-contain pointer-events-none bg-blue-100"
                     src={film.Poster}
                     alt=""
                 />
@@ -22,10 +42,10 @@ const FilmItem = ({ film }: Props) => {
                         {film.Year}
                     </p>
                 </div>
-                <div>
-                    <a
-                        href={`/:${film.imdbID}`}
-                        className="inline-flex items-center px-4 py-4 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300   "
+                <div className="relative">
+                    <Link
+                        to={`/:${film.imdbID}`}
+                        className="inline-flex items-center px-4 py-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300   "
                     >
                         Read more
                         <svg
@@ -43,11 +63,22 @@ const FilmItem = ({ film }: Props) => {
                                 d="M1 5h12m0 0L9 1m4 4L9 9"
                             />
                         </svg>
-                    </a>
+                    </Link>
+                    {authStatus ? (
+                        <div className="hidden lg:block">
+                            <AddToFavorite
+                                handleClick={() => handleLikeClick(film.imdbID)}
+                            />
+                        </div>
+                    ) : null}
                 </div>
             </div>
         </div>
     );
+};
+
+FilmItem.propTypes = {
+    isFavorite: PropTypes.bool.isRequired,
 };
 
 export { FilmItem };

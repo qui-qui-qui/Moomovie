@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Movie, MovieInfo } from "../models/Movie";
+import { Movie, MovieInfo } from "../../models/Movie";
 
 const API_KEY = "fae51faf";
 const baseUrl = `http://www.omdbapi.com/?apikey=${API_KEY}`;

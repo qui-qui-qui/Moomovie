@@ -16,3 +16,7 @@ export interface Movie {
     Search: MovieInfo[];
     totalResults: string;
 }
+
+export interface MovieInfoWithId extends Omit<MovieInfo, "_id"> {
+    id: string;
+}

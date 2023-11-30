@@ -1,8 +1,15 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useDebounce } from "../hooks/useDebounce";
+import { search } from "../redux/actions/search";
+import { getUserNameSelector } from "../redux/slices/authSlice";
 function SearchBar() {
     const [query, setQuery] = useState("");
+    const user = useSelector(getUserNameSelector);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const debounce = useDebounce(query, 500);
 
     const searchKeyHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter") {
@@ -11,9 +18,11 @@ function SearchBar() {
     };
 
     const searchHandler = () => {
-        if (query.length > 0) {
-            navigate(`/search/${query}`);
+        if (debounce) {
+            dispatch(search({ user, query }));
+            navigate(`/search/${debounce}`);
         }
+        setQuery("");
     };
 
     const SubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
@@ -60,7 +69,7 @@ function SearchBar() {
                 />
                 <button
                     onClick={searchHandler}
-                    className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 active:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2"
+                    className="text-white absolute end-2.5 bottom-2.5 bg-blue-500 hover:bg-blue-600 active:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2"
                 >
                     Search
                 </button>
