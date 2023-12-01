@@ -13,7 +13,7 @@ function History() {
     return (
         <>
             <Navbar />
-            <div className="grid place-items-center pt-10 bg-slate-50 px-4">
+            <div className="h-screen grid place-items-center bg-slate-50 px-4 dark:bg-slate-400">
                 <table className="w-80 text-sm text-left rtl:text-right text-gray-500 table-auto">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr>

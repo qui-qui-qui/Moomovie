@@ -32,7 +32,7 @@ function SearchBar() {
     return (
         <form
             onSubmit={SubmitHandler}
-            className="grid place-items-center bg-gray-100 pt-12"
+            className="grid place-items-center bg-gray-100 pt-12 dark:bg-slate-400"
         >
             <label
                 htmlFor="default-search"
@@ -69,7 +69,7 @@ function SearchBar() {
                 />
                 <button
                     onClick={searchHandler}
-                    className="text-white absolute end-2.5 bottom-2.5 bg-blue-500 hover:bg-blue-600 active:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2"
+                    className="text-white absolute end-2.5 bottom-2.5 bg-blue-500 hover:bg-blue-600 active:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                     Search
                 </button>

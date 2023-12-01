@@ -1,6 +1,9 @@
+**Это приложение для поиска фильмов использует API**: [The Open Movie Database](https://www.omdbapi.com/).
+**С помощью него вы можете найти фильм и получить о нем дополнительную информацию. При регистрации пользователь может добавить понравившиеся фильмы в избранное, а также посмотреть историю своих поисков запросов**
+
 ## **1 уровень (необходимый минимум)**
 
--   Реализованы все требования к функциональности, описанные в задании(кроме useContext):
+-   Реализованы все требования к функциональности, описанные в задании:
 
 ## React
 
@@ -10,7 +13,7 @@
 3. [x] Есть рендеринг списков: [Main](https://github.com/qui-qui-qui/Moomovie/blob/main/src/components/FilmsList.tsx),
        [Search]
 4. [x] Реализована хотя бы одна форма: [Form](https://github.com/qui-qui-qui/Moomovie/blob/main/src/components/LoginForm.tsx).
-5. [] Есть применение Контекст API:
+5. [x] Есть применение Контекст API: [Providers](https://github.com/qui-qui-qui/Moomovie/tree/main/src/providers):
 6. [x] Есть применение предохранителя: [ErrorBoundary](https://github.com/qui-qui-qui/Moomovie/blob/main/src/components/ErrorBoundary.tsx) оборачиваем [IndexTs](https://github.com/qui-qui-qui/Moomovie/blob/main/src/pages/MainPage.tsx)
 7. [x] Есть хотя бы один кастомный хук: [FavoritesCheck](https://github.com/qui-qui-qui/Moomovie/blob/main/src/hooks/useFavoritesCheck.ts), [Debounce](https://github.com/qui-qui-qui/Moomovie/blob/main/src/hooks/useDebounce.ts).
 8. [x] Хотя бы несколько компонентов используют PropTypes: [FilmItem](https://github.com/qui-qui-qui/Moomovie/blob/main/src/components/FilmItem.tsx), [AddToFavorite](https://github.com/qui-qui-qui/Moomovie/blob/main/src/components/AddToFavorite.tsx)

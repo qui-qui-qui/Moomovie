@@ -24,27 +24,27 @@ const FilmItem = ({ film, isFavorite }: Props) => {
         dispatch(addFavorite(film));
     };
     return (
-        <div className="flex-column justify-evenly max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+        <div className="flex-column justify-evenly max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <div>
                 <img
-                    className="rounded-t h-72 w-full object-contain pointer-events-none bg-blue-100"
+                    className="rounded-t h-72 w-full object-contain pointer-events-none bg-blue-100 dark:bg-gray-600"
                     src={film.Poster}
                     alt=""
                 />
             </div>
             <div className="p-5">
                 <div className="h-40">
-                    <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900">
+                    <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {film.Title}
                     </h5>
-                    <p className="mb-3 font-normal text-gray-700 ">
+                    <p className="mb-3 font-normal text-gray-700 dark:text-white">
                         {film.Year}
                     </p>
                 </div>
                 <div className="relative">
                     <Link
                         to={`/:${film.imdbID}`}
-                        className="inline-flex items-center px-4 py-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300   "
+                        className="inline-flex items-center px-4 py-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
                         Read more
                         <svg

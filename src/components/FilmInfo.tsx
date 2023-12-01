@@ -36,8 +36,8 @@ function FilmInfo() {
     }
 
     return (
-        <div className="mt-20 grid place-items-center font-mono bg-gray-100 ">
-            <div className="rounded-md bg-blue-300 shadow-lg">
+        <div className="mt-20 grid place-items-center font-mono bg-gray-100 dark:bg-slate-200">
+            <div className="rounded-md bg-blue-300 shadow-lg dark:bg-gray-600">
                 <div className="md:flex px-4 leading-none max-w-4xl">
                     <div className="flex-none mr-20">
                         <img
