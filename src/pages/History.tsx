@@ -13,13 +13,19 @@ function History() {
     return (
         <>
             <Navbar />
-            <div className="grid place-items-center pt-10 bg-slate-50">
-                <table className="table-auto">
-                    <thead>
+            <div className="grid place-items-center pt-10 bg-slate-50 px-4">
+                <table className="w-80 text-sm text-left rtl:text-right text-gray-500 table-auto">
+                    <thead className="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr>
-                            <th scope="col">Date & Time</th>
-                            <th scope="col">Query</th>
-                            <th scope="col">Results</th>
+                            <th scope="col" className="px-6 py-3">
+                                Date & Time
+                            </th>
+                            <th scope="col" className="px-6 py-3">
+                                Query
+                            </th>
+                            <th scope="col" className="px-6 py-3">
+                                Results
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,10 +33,10 @@ function History() {
                             const { id, query, timestamp, queryResultLink } =
                                 historyRecord;
                             return (
-                                <tr key={id}>
-                                    <td>{timestamp}</td>
-                                    <td>{query}</td>
-                                    <td>
+                                <tr key={id} className="bg-white border-b">
+                                    <td className="px-6 py-4">{timestamp}</td>
+                                    <td className="px-6 py-4">{query}</td>
+                                    <td className="px-6 py-4">
                                         <button
                                             className=""
                                             onClick={() => {

@@ -12,7 +12,9 @@ function Favorites() {
             {favorites.length ? (
                 <FilmsList search={favorites} />
             ) : (
-                <h1>Empty here</h1>
+                <div className="grid place-items-center py-10 bg-slate-50 px-4">
+                    <h1>Empty here</h1>
+                </div>
             )}
         </>
     );

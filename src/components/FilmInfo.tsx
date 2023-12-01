@@ -4,22 +4,17 @@ import { Loader } from "./Loader";
 import { AddToFavorite } from "./AddToFavorite";
 import { useDispatch, useSelector } from "react-redux";
 import { getAuthStatusSelector } from "../redux/slices/authSlice";
-import {
-    addFavorite,
-    deleteFavorite,
-    getFavorites,
-} from "../redux/slices/favoritesSlice";
+import { addFavorite, deleteFavorite } from "../redux/slices/favoritesSlice";
+import { useFavoritesCheck } from "../hooks/useFavoritesCheck";
 
 function FilmInfo() {
     const id = prepareId(useParams().id);
     const { data: film, isLoading } = useGetFilmsByIdQuery(id);
     const dispatch = useDispatch();
 
-    const favorites = useSelector(getFavorites);
     const authStatus = useSelector(getAuthStatusSelector);
 
-    const isFavoriteCheck = (id: string | undefined) =>
-        !!favorites.find((item) => item.imdbID === id);
+    const isFavoriteCheck = useFavoritesCheck;
 
     const isFavorite = isFavoriteCheck(film?.imdbID);
 

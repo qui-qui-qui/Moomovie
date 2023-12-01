@@ -17,7 +17,6 @@ const FilmItem = ({ film, isFavorite }: Props) => {
     const authStatus = useSelector(getAuthStatusSelector);
 
     const handleLikeClick = (idFilm: string) => {
-        console.log(idFilm, isFavorite);
         if (isFavorite) {
             dispatch(deleteFavorite(idFilm));
             return;

@@ -13,9 +13,9 @@ function Navbar() {
     const dispatch = useDispatch();
 
     const handleLogoutClick = () => {
+        dispatch(clearHistory());
         localStorageUtils.setAuth("");
         dispatch(logOut());
-        dispatch(clearHistory());
     };
 
     return (
