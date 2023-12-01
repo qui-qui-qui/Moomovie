@@ -8,7 +8,10 @@ const NotFoundPage = () => {
     };
 
     return (
-        <div data-testid="page-error" className="grid place-items-center pt-20">
+        <div
+            data-testid="page-error"
+            className="grid place-items-center pt-20 dark:bg-slate-400"
+        >
             <p>Something went wrong</p>
             <button className="" type="button" onClick={reloadPage}>
                 Main page

@@ -10,7 +10,7 @@ function FilmsList({ search }: Props) {
     const isFavoriteCheck = useFavoritesCheck;
 
     return (
-        <div className="bg-gray-100  py-10 px-12">
+        <div className="bg-gray-100  py-10 px-12 dark:bg-slate-400">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {search ? (
                     search.map((film: MovieInfo) => {
