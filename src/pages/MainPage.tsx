@@ -6,6 +6,7 @@ import { SignUp } from "./SignUpPage";
 import { LogInPage } from "./LoginPage";
 import { Favorites } from "./Favorites";
 import { History } from "./History";
+import { NotFoundPage } from "./NotFoundPage";
 
 function MainPage() {
     return (
@@ -18,6 +19,7 @@ function MainPage() {
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/favorites" element={<Favorites />} />
                 <Route path="/history" element={<History />} />
+                <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </BrowserRouter>
     );
