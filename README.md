@@ -10,8 +10,7 @@
 1. [x] Пишем функциональные компоненты c хуками в приоритете над классовыми.
 2. [x] Есть разделение на умные и глупые компоненты : [Глупые, например](https://github.com/qui-qui-qui/Moomovie/blob/main/src/pages/ExtraInfo.tsx)
        , [Умные, например](https://github.com/qui-qui-qui/Moomovie/blob/main/src/components/FilmItem.tsx).
-3. [x] Есть рендеринг списков: [Main](https://github.com/qui-qui-qui/Moomovie/blob/main/src/components/FilmsList.tsx),
-       [Search]
+3. [x] Есть рендеринг списков: [Main](https://github.com/qui-qui-qui/Moomovie/blob/main/src/components/FilmsList.tsx)
 4. [x] Реализована хотя бы одна форма: [Form](https://github.com/qui-qui-qui/Moomovie/blob/main/src/components/LoginForm.tsx).
 5. [x] Есть применение Контекст API: [Providers](https://github.com/qui-qui-qui/Moomovie/tree/main/src/providers):
 6. [x] Есть применение предохранителя: [ErrorBoundary](https://github.com/qui-qui-qui/Moomovie/blob/main/src/components/ErrorBoundary.tsx) оборачиваем [IndexTs](https://github.com/qui-qui-qui/Moomovie/blob/main/src/pages/MainPage.tsx)
