@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+    overflow-y: scroll;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+}
