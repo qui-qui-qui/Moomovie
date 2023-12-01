@@ -1,48 +1,18 @@
 import { useParams } from "react-router-dom";
-import { useGetFilmsByIdQuery } from "../redux/services/filmService";
-import { Loader } from "./Loader";
-import { AddToFavorite } from "./AddToFavorite";
-import { useDispatch, useSelector } from "react-redux";
-import { getAuthStatusSelector } from "../redux/slices/authSlice";
-import {
-    addFavorite,
-    deleteFavorite,
-    getFavorites,
-} from "../redux/slices/favoritesSlice";
+import { useGetFilmsByIdQuery } from "../services/FilmService";
+import { Loader } from "../pages/Loader";
 
 function FilmInfo() {
-    const id = prepareId(useParams().id);
-    const { data: film, isLoading } = useGetFilmsByIdQuery(id);
-    const dispatch = useDispatch();
-
-    const favorites = useSelector(getFavorites);
-    const authStatus = useSelector(getAuthStatusSelector);
-
-    const isFavoriteCheck = (id: string | undefined) =>
-        !!favorites.find((item) => item.imdbID === id);
-
-    const isFavorite = isFavoriteCheck(film?.imdbID);
-
-    const handleLikeClick = (idFilm: string | undefined) => {
-        if (isFavorite) {
-            dispatch(deleteFavorite(idFilm));
-            return;
-        }
-        dispatch(addFavorite(film));
-    };
+    const { id } = useParams();
+    const { data: film, isLoading } = useGetFilmsByIdQuery(id?.slice(1));
 
     if (isLoading) {
         return <Loader />;
     }
 
-    function prepareId(id: string | undefined) {
-        //remove first letter from useParams id
-        return id?.slice(1);
-    }
-
     return (
-        <div className="mt-20 grid place-items-center font-mono bg-gray-100 ">
-            <div className="rounded-md bg-blue-300 shadow-lg">
+        <div className="mt-20 grid place-items-center font-mono bg-white">
+            <div className="rounded-md bg-gray-500 shadow-lg">
                 <div className="md:flex px-4 leading-none max-w-4xl">
                     <div className="flex-none mr-20">
                         <img
@@ -52,14 +22,7 @@ function FilmInfo() {
                         />
                     </div>
 
-                    <div className="flex-col text-white relative">
-                        {authStatus ? (
-                            <AddToFavorite
-                                handleClick={() =>
-                                    handleLikeClick(film?.imdbID)
-                                }
-                            />
-                        ) : null}
+                    <div className="flex-col text-gray-300">
                         <p className="pt-4 text-2xl font-bold">
                             {film?.Title} ({film?.Year})
                         </p>

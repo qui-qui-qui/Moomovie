@@ -1,4 +1,4 @@
-export interface MovieInfo {
+export interface IMovieInfo {
     Title: string;
     Year: string;
     imdbID: string;
@@ -12,11 +12,7 @@ export interface MovieInfo {
     imdbRating: string;
 }
 
-export interface Movie {
-    Search: MovieInfo[];
+export interface IMovie {
+    Search: IMovieInfo[];
     totalResults: string;
-}
-
-export interface MovieInfoWithId extends Omit<MovieInfo, "_id"> {
-    id: string;
 }
