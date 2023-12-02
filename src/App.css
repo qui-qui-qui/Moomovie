@@ -9,3 +9,7 @@ html {
 input[type="search"]::-webkit-search-cancel-button {
     display: none;
 }
+
+.searchbar:hover + .suggest-search {
+    display: block;
+}

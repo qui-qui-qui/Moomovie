@@ -53,10 +53,10 @@ function SearchBar() {
     };
 
     return (
-        <div className="relaive">
+        <div>
             <form
                 onSubmit={SubmitHandler}
-                className="grid place-items-center bg-gray-100 pt-12 dark:bg-slate-400"
+                className="searchbar grid place-items-center bg-gray-100 pt-12 dark:bg-slate-400"
             >
                 <label
                     htmlFor="default-search"
