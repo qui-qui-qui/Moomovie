@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { MovieInfo } from "../models/Movie";
 
-type SearchResultsListProps = {
+type Props = {
     results: MovieInfo[] | null;
 };
 
-function SuggestList({ results }: SearchResultsListProps) {
+function SuggestList({ results }: Props) {
     return (
-        <div className="absolute z-[1000] m-auto left-0 right-0 w-96 list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block">
+        <div className="suggest-search hidden absolute z-[1000] m-auto left-0 right-0 w-96 list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block">
             {results &&
                 results.map((result) => (
                     <Link
