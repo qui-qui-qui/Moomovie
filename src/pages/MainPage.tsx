@@ -12,6 +12,7 @@ import {
 } from "../routing/lazy";
 import { NotFoundPage } from "./NotFoundPage";
 import { ErrorBoundary } from "../components/ErrorBoundary";
+import { PrivateOutlet } from "../routing/PrivateOutlet";
 
 function MainPage() {
     return (
@@ -27,11 +28,13 @@ function MainPage() {
                         />
                         <Route path="/login" element={<LogInPageLazy />} />
                         <Route path="/signup" element={<SignUpPageLazy />} />
-                        <Route
-                            path="/favorites"
-                            element={<FavoritesPageLazy />}
-                        />
-                        <Route path="/history" element={<HistoryPageLazy />} />
+                        <Route path="/history" element={<PrivateOutlet />}>
+                            <Route index element={<HistoryPageLazy />} />
+                        </Route>
+
+                        <Route path="/favorites" element={<PrivateOutlet />}>
+                            <Route index element={<FavoritesPageLazy />} />
+                        </Route>
                         <Route path="*" element={<NotFoundPage />} />
                     </Routes>
                 </Suspense>

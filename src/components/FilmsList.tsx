@@ -1,13 +1,17 @@
 import { FilmItem } from "./FilmItem";
 import { MovieInfo } from "../models/Movie";
-import { useFavoritesCheck } from "../hooks/useFavoritesCheck";
+import { useSelector } from "react-redux";
+import { getFavorites } from "../redux/slices/favoritesSlice";
 
 type Props = {
     search: MovieInfo[] | undefined;
 };
 
 function FilmsList({ search }: Props) {
-    const isFavoriteCheck = useFavoritesCheck;
+    const favorites = useSelector(getFavorites);
+    const isFavoriteCheck = (id: string | undefined): boolean => {
+        return !!favorites.find((item) => item.imdbID === id);
+    };
 
     return (
         <div className="bg-gray-100  py-10 px-12 dark:bg-slate-400">

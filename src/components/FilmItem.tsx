@@ -67,6 +67,7 @@ const FilmItem = ({ film, isFavorite }: Props) => {
                         <div className="hidden lg:block">
                             <AddToFavorite
                                 handleClick={() => handleLikeClick(film.imdbID)}
+                                isFavorite={isFavorite}
                             />
                         </div>
                     ) : null}

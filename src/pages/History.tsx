@@ -40,7 +40,6 @@ function History() {
                                         <button
                                             className=""
                                             onClick={() => {
-                                                console.log(queryResultLink);
                                                 navigate(`${queryResultLink}`);
                                             }}
                                         >
