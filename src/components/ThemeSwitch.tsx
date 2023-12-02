@@ -1,16 +1,13 @@
-import { useEffect } from "react";
 import { useTheme } from "../providers/Theme/ThemeProvider";
 
 const ThemeSwitch = () => {
     const { darkMode, toggleTheme } = useTheme();
 
-    useEffect(() => {
-        if (darkMode) {
-            document.body.classList.add("dark");
-        } else {
-            document.body.classList.remove("dark");
-        }
-    }, [darkMode]);
+    if (darkMode) {
+        document.body.classList.add("dark");
+    } else {
+        document.body.classList.remove("dark");
+    }
 
     return (
         <button

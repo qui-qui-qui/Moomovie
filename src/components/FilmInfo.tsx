@@ -53,6 +53,7 @@ function FilmInfo() {
                                 handleClick={() =>
                                     handleLikeClick(film?.imdbID)
                                 }
+                                isFavorite={isFavorite}
                             />
                         ) : null}
                         <p className="pt-4 text-2xl font-bold">
