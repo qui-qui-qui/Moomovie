@@ -16,7 +16,7 @@ function SearchBar() {
     const [suggests, setSuggests] = useState<MovieInfo[] | null>(null);
     const debounce = useDebounce(query, 500);
 
-    const inputRef = useRef<HTMLInputElement>(null);
+    const formRef = useRef<HTMLInputElement>(null);
     let isSubmitInvoked = false;
 
     const searchKeyHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -47,16 +47,26 @@ function SearchBar() {
         setSuggests(null);
     };
 
-    const SubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         isSubmitInvoked = true;
     };
 
+    const focusHandler = () => {
+        formRef.current?.classList.add("show-suggest");
+    };
+
+    const blurHandler = () => {
+        setTimeout(() => {
+            formRef.current?.classList.remove("show-suggest");
+        }, 500);
+    };
+
     return (
-        <div>
+        <div className="" ref={formRef} onBlur={blurHandler}>
             <form
-                onSubmit={SubmitHandler}
-                className="searchbar grid place-items-center bg-gray-100 pt-12 dark:bg-slate-400"
+                onSubmit={submitHandler}
+                className="grid place-items-center bg-gray-100 pt-12 dark:bg-slate-400"
             >
                 <label
                     htmlFor="default-search"
@@ -85,12 +95,12 @@ function SearchBar() {
                     <input
                         type="search"
                         id="default-search"
-                        ref={inputRef}
                         className="pr-80 block w-full p-4 ps-10 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
                         placeholder="Enter the film"
                         value={query}
                         onChange={(e) => dataSuggest(e)}
                         onKeyUp={searchKeyHandler}
+                        onFocus={focusHandler}
                     />
                     <button
                         onClick={searchHandler}

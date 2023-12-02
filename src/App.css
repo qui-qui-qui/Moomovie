@@ -10,6 +10,6 @@ input[type="search"]::-webkit-search-cancel-button {
     display: none;
 }
 
-.searchbar:hover + .suggest-search {
+.show-suggest .suggest-search {
     display: block;
 }
